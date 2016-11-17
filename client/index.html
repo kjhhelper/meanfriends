@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!-- DONT FORGET TO ADD YOUR ANGULAR APP! -->
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Awesome Friends</title>
+    <!-- Angular from bower_components, otherwise find the CDN -->
+    <script src="angular/angular.js" charset="utf-8"></script>
+    <script src="angular-route/angular-route.js" charset="utf-8"></script>
+    <!-- assets -->
+    <script src="assets/app.js" charset="utf-8"></script>
+    <script src="assets/controllers/editController.js" charset="utf-8"></script>
+    <script src="assets/controllers/newController.js" charset="utf-8"></script>
+    <script src="assets/factories/friendsFactory.js" charset="utf-8"></script>
+
+    <!-- <script>
+      var myApp=angular.module('myApp',['ngRoute']);
+    </script> -->
+  </head>
+
+  <body>
+    <h1>Welcome</h1>
+        <a href="#/">main</a><br><br>
+        <a href="#/new">new</a><br><br>
+        <!-- <a href="#/update">edit</a><br><br> -->
+    <div ng-view>
+        <!-- partial load here -->
+        </div>
+  </body>
+</html>

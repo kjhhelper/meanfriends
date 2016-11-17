@@ -1,0 +1,24 @@
+<table>
+  <thead>
+    <tr>
+      <th>|First name|</th>
+      <th>|Last name|</th>
+      <th>Show</th>
+      <th>Update</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+       <tr ng-repeat="friend in friends">
+        <td>{{friend.firstname}}</td>
+        <td>{{friend.lastname}}</td>
+        <td><a href="#/show/{{friend._id}}" ng-submit="show()">show</a><br></td><br>
+        <td><a href="#/update/{{friend._id}}">update</a><br></td><br>
+        <td><a href="#/delete/{{friend._id}}">delete</a><br></td><br>
+
+      </tr>
+  </tbody>
+</table>
+<!-- //req.params.id->from routes(address)
+//req.body.firstname->from form input
+//{{friend._id}}->from mongodb -->

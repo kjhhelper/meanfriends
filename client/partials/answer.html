@@ -1,11 +1,11 @@
 <!-- You will attach an ng-model and an ng-submit to your forms (but might want to wait until the next tab, when you have your controllers and factory) -->
 <!-- table1 -->
 <!-- <div ng-controller="CustomizeUsersController"> -->
-<h1>New Question</h1>
-  <form ng-submit="create()">
-    Question<br><textarea rows="4" cols="50"  ng-model='q.question'></textarea><br><br>
+<h1>New Answer</h1>
+  <form>
+    Answer<br><textarea rows="4" cols="50"  ng-model='q.question'></textarea><br><br>
 
-    Description<br><textarea rows="4" cols="50"  ng-model='q.description'></textarea><br><br>
+    Supporting Details<br><textarea rows="4" cols="50"  ng-model='q.description'></textarea><br><br>
 
     <input type='submit' value='Submit'><br><br>
-  </form>
+  </form ng-click="create()">

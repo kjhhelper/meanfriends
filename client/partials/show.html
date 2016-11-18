@@ -1,24 +1,36 @@
 <table>
   <thead>
     <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Show</th>
-      <th>Update</th>
-      <th>Delete</th>
+      <th>Question</th>
+      <!-- <th>Answer</th> -->
+      <th>Action</th>
+      <th>Action</th>
     </tr>
   </thead>
   <tbody>
-       <tr ng-repeat="friend in friends">
-        <td>{{friend.firstname}}</td>
-        <td>{{friend.lastname}}</td>
-        <!-- <td><a href="" ng-click="show(friend._id)">show</a><br></td><br> -->
-        <td><a href="#/show1/{{friend._id}}">show</a><br></td><br>
-        <td><a href="#/update/{{friend._id}}">update</a><br></td><br>
-        <td><a href="" ng-click="delete(friend._id)">delete</a><br></td><br>
+       <tr ng-repeat="q in questions">
+        <td>{{q.question}}</td>
+        <!-- <td>{{q.answer}}</td> -->
+        <!-- <td><a href="" ng-click="show(question._id)">show</a><br></td><br> -->
+        <td><a href="#/show1/{{q._id}}">show</a><br></td><br>
+        <td><a href="#/update/{{q._id}}">answer</a><br></td><br>
+
       </tr>
   </tbody>
 </table>
+
+<!-- <h1>New Answer</h1>
+  <form ng-submit="create()">
+    Answer<br><textarea rows="4" cols="50"  ng-model='newquestion.firstname'></textarea><br><br>
+
+    Supporting details for you answer(optional)<br><textarea rows="4" cols="50"  ng-model='newquestion.lastname'></textarea><br><br>
+
+    <input type='submit' value='Create'><br><br>
+  </form> -->
+
+
+
+
 <!-- //req.params.id->from routes(address)
 //req.body.firstname->from form input
-//{{friend._id}}->from mongodb -->
+//{{question._id}}->from mongodb -->

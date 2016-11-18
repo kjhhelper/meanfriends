@@ -1,16 +1,20 @@
 
-// Routes to load your new and edit pages with new and edit controllers attached to them!
+// Routes to load your questions and edit pages with questions and edit controllers attached to them!
 console.log("APP.JS IS HERE");
 var myApp = angular.module('myApp', ['ngRoute']);
 myApp.config(function($routeProvider){
   $routeProvider
   .when('/',{
     templateUrl:'partials/show.html',
-    controller:'newController'
+    controller:'questionsController'
   })
   .when('/new',{
     templateUrl:'partials/new.html',
-    controller:'newController'
+    controller:'questionsController'
+  })
+  .when('/answer',{
+    templateUrl:'partials/answer.html',
+    controller:'questionsController'
   })
   .when('/update/:id',{
     templateUrl:'partials/update.html',
@@ -18,7 +22,7 @@ myApp.config(function($routeProvider){
   })
   .when('/show1/:id',{
     templateUrl:'partials/show1.html',
-    controller:'newController'
+    controller:'questionsController'
   })
   .otherwise({
     redirectTo:'/'

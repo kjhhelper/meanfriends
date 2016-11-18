@@ -10,8 +10,9 @@ var mongoose = require('mongoose');
 require('./server/config/mongoose.js');
 myApp.use(bodyParser.json());
 // Routes go here!
-var routes_setter = require('./server/config/routes.js');
-routes_setter(myApp);
+// var routes_setter = require('./server/config/routes.js');
+// routes_setter(myApp);
+require("./server/config/routes.js")(myApp);
 
 myApp.use(express.static(path.join(root,'./client')));
 myApp.use(express.static(path.join(root,'bower_components')));

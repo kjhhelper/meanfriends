@@ -1,21 +1,21 @@
-console.log('CONTROLLER-FRIENDS.JS');
+console.log('CONTROLLER-questionS.JS');
 // WE NEED TO ADD A FEW lines of code here!
 var mongoose=require('mongoose');
-var Friend= mongoose.model('Friend');
+var questions= mongoose.model('questions');
 // How does a controller talk to mongoose and get a model?
-// Build out the methods in the friendsControllers below
+// Build out the methods in the questionsControllers below
 
-function FriendsController(){
+function questionsController(){
   this.index = function(req,res){
-    Friend.find({},function(err,friend){
-    res.json(friend);
+    questions.find({},function(err,question){
+    res.json(question);
   })};
 
   this.create = function(req,res){
 console.log("@@@@@@@@@@@@@@@@@");
     console.log(req.body);
-    var friend= new Friend(req.body);
-    friend.save(function(err){
+    var question= new question(req.body);
+    questions.save(function(err){
       if(err){
         console.log("something wrong");
       }else{
@@ -29,44 +29,44 @@ console.log("@@@@@@@@@@@@@@@@@");
 //User.update({name:'Andrinnna'}, {name:'Andriana'}, function(err){
   //req.params.id->from routes(address)
   //req.body.firstname->from form input
-  //{{friend._id}}->from mongodb
+  //{{question._id}}->from mongodb
 
   this.update = function(req,res){
-    Friend.update({_id:req.params.id},req.body,
-    function(err, friend){
+    questions.update({_id:req.params.id},req.body,
+    function(err, question){
       console.log("req.body.firstname is:::",req.body.firstname);//[]
       console.log("req.params.id is:::",req.params.id);
 
         if(err){
           console.log("something wrong",err);
         }else{
-          console.log("backend friends controllerssssssssss");
-          console.log(friend)//;{ ok: 1, nModified: 1, n: 1 }
-          res.json(friend);
+          console.log("backend questions controllerssssssssss");
+          console.log(question)//;{ ok: 1, nModified: 1, n: 1 }
+          res.json(question);
         }
     })
   };
 
   this.delete = function(req,res){
     console.log("serverside ctrl->delete");
-    Friend.remove({_id:req.params.id},function(err){
+    questions.remove({_id:req.params.id},function(err){
     if(err){
       console.log('something went wrong');}
     else{
       console.log("deleted-server");
       res.json({success: true});
-      // res.redirect('/friends');
+      // res.redirect('/questions');
     }
   })
   };
   this.show = function(req,res){
-    Friend.findOne({_id:req.params.id},function(err,friend){
+    questions.findOne({_id:req.params.id},function(err,question){
     if(err){
       console.log('something went wrong');}
     else{
-    res.json(friend);
+    res.json(question);
     }
   })}
-}//FriendsController closing
+}//questionsController closing
 
-module.exports = new FriendsController(); // what does this export?
+module.exports = new questionsController(); // what does this export?

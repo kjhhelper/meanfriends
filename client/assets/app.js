@@ -16,13 +16,9 @@ myApp.config(function($routeProvider){
     templateUrl:'partials/update.html',
     controller:'editController'
   })
-  .when('/show',{
-    templateUrl:'partials/show1.html',
-    controller:'newController'
-  })
   .when('/show1/:id',{
     templateUrl:'partials/show1.html',
-    controller:'showoneController'
+    controller:'newController'
   })
   .otherwise({
     redirectTo:'/'

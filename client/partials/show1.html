@@ -7,11 +7,10 @@
     </tr>
   </thead>
   <tbody>
-       <tr ng-repeat="friend in friends">
+       <tr>
         <td>{{friend.firstname}}</td>
         <td>{{friend.lastname}}</td>
-        <td>{{friend.birthday}}</td>
-
+        <td>{{friend.birthday | date:'dd-MM-yyyy'}}</td>
       </tr>
   </tbody>
 </table>

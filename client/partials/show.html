@@ -1,8 +1,8 @@
 <table>
   <thead>
     <tr>
-      <th>|First name|</th>
-      <th>|Last name|</th>
+      <th>First name</th>
+      <th>Last name</th>
       <th>Show</th>
       <th>Update</th>
       <th>Delete</th>
@@ -12,10 +12,10 @@
        <tr ng-repeat="friend in friends">
         <td>{{friend.firstname}}</td>
         <td>{{friend.lastname}}</td>
-        <td><a href="#/show/{{friend._id}}" ng-submit="show()">show</a><br></td><br>
+        <!-- <td><a href="" ng-click="show(friend._id)">show</a><br></td><br> -->
+        <td><a href="#/show1/{{friend._id}}">show</a><br></td><br>
         <td><a href="#/update/{{friend._id}}">update</a><br></td><br>
-        <td><a href="#/delete/{{friend._id}}">delete</a><br></td><br>
-
+        <td><a href="" ng-click="delete(friend._id)">delete</a><br></td><br>
       </tr>
   </tbody>
 </table>

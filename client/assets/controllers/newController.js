@@ -1,4 +1,4 @@
-myApp.controller('newController', ['$scope','friendsFactory', function($scope, friendsFactory){
+myApp.controller('newController', ['$scope','friendsFactory','$routeParams','$location', function($scope, friendsFactory,$routeParams,$location){
   $scope.friends=[];
 
 friendsFactory.index(function(Data){
@@ -6,27 +6,38 @@ $scope.friends = Data;
 })
 
 $scope.create=function(Data){
-  friendsFactory.create($scope.newfriend);
+  friendsFactory.create($scope.newfriend, function() {
+    console.log('hello, where am i');
+  });
   console.log("new controller FOR CREATE working");
   console.log($scope.newfriend);
   $scope.newfriend={};
+    $location.url('/show');
 }
-
-$scope.update = function(Data){
-  friendsFactory.update($scope.friend);
-  console.log("new controller FOR UPDATE working");
-  $scope.friend={};
-    };
+//
 
 $scope.delete = function(Data){
-  friendsFactory.delete($scope.friend);
+  console.log(Data);
+  friendsFactory.delete(Data, function (res) {
+    console.log(res);//console log the returned_data.data from factory
+  });
   console.log("new controller FOR DELETE working");
-    callback(friends);
+  console.log(Data);//undefined
+  // $scope.friend={};
+  friendsFactory.index(function(Data){
+  $scope.friends = Data;
+  })
   };
 
-  $scope.show = function(Data){
-    friendsFactory.show($scope.friend);
-    console.log("new controller FOR SHOW working");
-      callback(friends);
-    };
+  // $scope.show = function(Data){
+    friendsFactory.show($routeParams.id,function(res){
+      console.log(res);
+      $scope.friend=res;
+    });
+    // $scope.friend={};
+    // $location.url('/show1/'+Data);
+    // };
+
+
+
 }]);

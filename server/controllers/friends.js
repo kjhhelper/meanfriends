@@ -32,7 +32,7 @@ console.log("@@@@@@@@@@@@@@@@@");
   //{{friend._id}}->from mongodb
 
   this.update = function(req,res){
-    Friend.update({_id:req.params.id},{firstname:req.body.firstname,lastname:req.body.lastname,birthday:req.body.birthday},
+    Friend.update({_id:req.params.id},req.body,
     function(err, friend){
       console.log("req.body.firstname is:::",req.body.firstname);//[]
       console.log("req.params.id is:::",req.params.id);
@@ -48,20 +48,23 @@ console.log("@@@@@@@@@@@@@@@@@");
   };
 
   this.delete = function(req,res){
+    console.log("serverside ctrl->delete");
     Friend.remove({_id:req.params.id},function(err){
     if(err){
       console.log('something went wrong');}
     else{
-      res.json({placeholder:'delete'});
+      console.log("deleted-server");
+      res.json({success: true});
+      // res.redirect('/friends');
     }
   })
   };
   this.show = function(req,res){
-    Friend.find({_id:req.params.id},function(err){
+    Friend.findOne({_id:req.params.id},function(err,friend){
     if(err){
       console.log('something went wrong');}
     else{
-    res.json({placeholder:'show'});
+    res.json(friend);
     }
   })}
 }//FriendsController closing
